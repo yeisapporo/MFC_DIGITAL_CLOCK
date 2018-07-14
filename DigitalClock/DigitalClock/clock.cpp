@@ -6,7 +6,7 @@
 #include "clock.h"
 
 // 出力文字列を保持する
-TCHAR str[80] = _T("");
+TCHAR str[80] = { 0 };
 // Z-order
 BOOL isTopMost = TRUE;
 
@@ -62,27 +62,9 @@ afx_msg void CMainWin::OnPaint() {
 	dc.FillSolidRect(0, 0, 500, 500, RGB(0, 0, 0));
 
 	// フォント設定
-//	CFont *pFont;
 	CFont font;
-
-	// フォントを作成する
-	font.CreateFont(
-		32,                   // フォントの高さ(大きさ)。
-		0,                    // フォントの幅。普通０。
-		0,                    // 角度。０でＯＫ。
-		0,                    // 同じく角度。これも０。
-		FW_EXTRABOLD,          // 文字の太さ。
-		FALSE,                // フォントがイタリックならTRUEを指定。
-		FALSE,                // 下線を引くならTRUE。
-		FALSE,                // 取り消し線を引くならTRUE。
-		ANSI_CHARSET,     // フォントの文字セット。このままでＯＫ。
-		OUT_DEFAULT_PRECIS,   // 出力精度の設定。このままでＯＫ。
-		CLIP_DEFAULT_PRECIS,  // クリッピング精度。このままでＯＫ。
-		DEFAULT_QUALITY,        // フォントの出力品質。このままでＯＫ。
-		DEFAULT_PITCH,        // フォントのピッチとファミリを指定。このままでＯＫ。
-		_T("Ricty Diminished Discord") // フォントのタイプフェイス名の指定。これは見たまんま。
-	);
-	/*pFont = */dc.SelectObject(&font);        // フォントを設定。
+    SetFont(&dc, &font);
+	
 	dc.SetTextColor(RGB(63, 127, 255));
 
 	// 文字を再表示
@@ -118,6 +100,29 @@ afx_msg void CMainWin::OnTimer(UINT ID) {
 
 		InvalidateRect(NULL, 0);
 	}
+}
+
+// フォントを設定する
+void CMainWin::SetFont(CPaintDC *pDC, CFont *pFont) {
+	// フォントを作成する
+	pFont->CreateFont(
+		32,                   // フォントの高さ(大きさ)。
+		0,                    // フォントの幅。普通０。
+		0,                    // 角度。０でＯＫ。
+		0,                    // 同じく角度。これも０。
+		FW_EXTRABOLD,          // 文字の太さ。
+		FALSE,                // フォントがイタリックならTRUEを指定。
+		FALSE,                // 下線を引くならTRUE。
+		FALSE,                // 取り消し線を引くならTRUE。
+		ANSI_CHARSET,     // フォントの文字セット。このままでＯＫ。
+		OUT_DEFAULT_PRECIS,   // 出力精度の設定。このままでＯＫ。
+		CLIP_DEFAULT_PRECIS,  // クリッピング精度。このままでＯＫ。
+		DEFAULT_QUALITY,        // フォントの出力品質。このままでＯＫ。
+		DEFAULT_PITCH,        // フォントのピッチとファミリを指定。このままでＯＫ。
+		_T("Ricty Diminished Discord") // フォントのタイプフェイス名の指定。これは見たまんま。
+	);
+	
+	pDC->SelectObject(pFont);        // フォントを設定。
 }
 
 // アプリケーションを終了する

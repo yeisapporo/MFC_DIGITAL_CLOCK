@@ -9,6 +9,8 @@ enum ID_TIMER {
 
 // メインウィンドウクラス
 class CMainWin : public CFrameWnd {
+private:
+	void SetFont(CPaintDC * pDC, CFont * pFont);
 public:
 	CMainWin();
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

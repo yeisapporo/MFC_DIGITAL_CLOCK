@@ -1,0 +1,5 @@
+﻿  click.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+d:\kazz\prj\cppprj\standard_\digitalclock\digitalclock\click.cpp(47): error C2440: 'static_cast': 'void (__cdecl CMainWin::* )(UINT)' から 'void (__cdecl CWnd::* )(UINT_PTR)' に変換できません。
+  d:\kazz\prj\cppprj\standard_\digitalclock\digitalclock\click.cpp(47): note: base から derived へのキャストには、dynamic_cast または static_cast が必要です。
+d:\kazz\prj\cppprj\standard_\digitalclock\digitalclock\click.cpp(100): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。

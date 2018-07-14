@@ -63,7 +63,7 @@ afx_msg void CMainWin::OnPaint() {
 
 	// ƒtƒHƒ“ƒgİ’è
 	CFont font;
-    SetFont(&dc, &font);
+	SetFont(&dc, &font);
 	
 	dc.SetTextColor(RGB(63, 127, 255));
 

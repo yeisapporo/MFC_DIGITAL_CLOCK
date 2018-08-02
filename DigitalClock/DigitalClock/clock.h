@@ -1,5 +1,4 @@
 #pragma once
-
 #include <afxwin.h>
 
 enum ID_TIMER {
@@ -7,8 +6,13 @@ enum ID_TIMER {
 	SETTOPMOST,
 };
 
-// メインウィンドウクラス
+// main window class
 class CMainWin : public CFrameWnd {
+private:
+	// retain string for output.
+	TCHAR str[80] = { '\0' };
+	// Z-order.
+	BOOL isTopMost = TRUE;
 private:
 	void SetFont(CPaintDC * pDC, CFont * pFont);
 public:
@@ -22,9 +26,8 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-// アプリケーションクラス
+// application class
 class CApp : public CWinApp {
 public:
 	BOOL InitInstance();
 };
-

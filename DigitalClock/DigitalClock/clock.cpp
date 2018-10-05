@@ -125,9 +125,7 @@ afx_msg void CMainWin::OnTimer(UINT ID) {
 	}
 	else if (ID == ID_TIMER::MOVEMOUSE) {
 		// suppress going into stand-by mode.
-		::SetThreadExecutionState(ES_SYSTEM_REQUIRED | ES_CONTINUOUS);
-		// suppress launching screen-saver.
-		::SetThreadExecutionState(ES_DISPLAY_REQUIRED);
+		::SetThreadExecutionState(ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED | ES_CONTINUOUS);
 		// move mouse to (dx:=0, dy:=0).
 		INPUT data[INPUT_DATA_NUM];
 		INPUT *p_data = data;

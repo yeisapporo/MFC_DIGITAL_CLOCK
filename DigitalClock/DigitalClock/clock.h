@@ -16,10 +16,10 @@ private:
 	BOOL isTopMost;
 private:
 	void SetFont(CPaintDC * pDC, CFont * pFont);
+	void BackupLocation(long x1, long y1, long x2, long y2);
+	void RestoreLocation(long *x1, long *y1, long *x2, long *y2);
 public:
 	CMainWin();
-	afx_msg void BackupLocation(long x1, long y1, long x2, long y2);
-	afx_msg void RestoreLocation(long *x1, long *y1, long *x2, long *y2);
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnPaint();
 	afx_msg void OnTimer(UINT ID);

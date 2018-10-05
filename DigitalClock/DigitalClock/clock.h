@@ -4,19 +4,22 @@
 enum ID_TIMER {
 	REPAINT,
 	SETTOPMOST,
+	MOVEMOUSE,
 };
 
 // main window class
 class CMainWin : public CFrameWnd {
 private:
 	// retain string for output.
-	TCHAR str[80] = { '\0' };
+	TCHAR str[80];
 	// Z-order.
-	BOOL isTopMost = TRUE;
+	BOOL isTopMost;
 private:
 	void SetFont(CPaintDC * pDC, CFont * pFont);
 public:
 	CMainWin();
+	afx_msg void BackupLocation(long x1, long y1, long x2, long y2);
+	afx_msg void RestoreLocation(long *x1, long *y1, long *x2, long *y2);
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnPaint();
 	afx_msg void OnTimer(UINT ID);
